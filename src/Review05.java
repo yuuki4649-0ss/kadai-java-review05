@@ -30,19 +30,13 @@
                 // 4. DBとやりとりする窓口(Statementオブジェクト)の作成
                 String sql = "SELECT * FROM person WHERE id = ?";
                 pstmt = con.prepareStatement(sql);
-                
+
                 System.out.print("検索キーワードを入力してください > ");
                 String str1 = keyIn();
-                
+
                 pstmt.setString(1,str1);
 
                 // 5, 6. Select文の実行と結果を格納/代入
-                //System.out.print("検索キーワードを入力してください > ");    // ← 追記
-                //int input = keyIn();
-
-                //pstmt.setString(1, input);
-                // pstmt.setInt(2, input);
-
                 rs = pstmt.executeQuery();
 
                 // 7. 結果を表示する
@@ -50,13 +44,11 @@
                     // Name列の値を取得
                     String name = rs.getString("name");
                     int age = rs.getInt("age");
-                    // Population列の値を取得　← 追記
-                   // int population = rs.getInt("Population");  // ← 追記
 
                     // 取得した値を表示
                     System.out.println(name);
                     System.out.println(age);
-                   // System.out.println(population);  // ← 追記
+
                 }
 
             } catch (ClassNotFoundException e) {
